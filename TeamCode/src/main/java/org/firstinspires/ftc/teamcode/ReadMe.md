@@ -2,7 +2,7 @@
 ## Who are we?
 <pre>
 We are an FTC robotics team based in Irvine, California. So if you live nearby and are interested in joining or need anything from
-us, please feel free to contact us at the details below. This GitHub Repository is our FTC environment along with <a href="https://github.com/maximusxiao/offseason/tree/master/TeamCode/src/main/java/org/firstinspires/ftc/teamcode">our code</a>. We wish
+us, please feel free to contact us at the details below. This <a href="https://github.com/maximusxiao/offseason">GitHub Repository</a> is our FTC environment along with <a href="https://github.com/maximusxiao/offseason/tree/master/TeamCode/src/main/java/org/firstinspires/ftc/teamcode">our code</a>. We wish
 to make our resources open-source, so feel free to reach out if you need anything.
 </pre>
 ## Resources
