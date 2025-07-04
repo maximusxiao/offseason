@@ -99,7 +99,7 @@ Not yet finished; Coming soon!
 ## Extension/Control Hub Port Mappings<br />
 1. Drive motors<br />
    <pre>Names: motor_f_l, motor_f_r, motor_b_l, motor_b_l<br />
-        Ports: idk, Max pls put this<br />
+   Ports: idk, Max pls put this<br />
    </pre>
 
 
