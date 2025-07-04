@@ -20,12 +20,33 @@
   Spinning intake mechanism
 </pre>
 * Left Bumper
+<pre>
+  Not yet configured
+</pre>
 * Right Bumper
+<pre>
+  Not yet configured
+</pre>
 * Button A
+<pre>
+  Not yet configured
+</pre>
 * Button B
+<pre>
+  Not yet configured
+</pre>
 * Button X
+<pre>
+  Not yet configured
+</pre>
 * Button Y
+<pre>
+  Not yet configured
+</pre>
 * D-pad
+<pre>
+  Not yet configured
+</pre><br />
 #### <ins>Gamepad 2</ins>
 
 
