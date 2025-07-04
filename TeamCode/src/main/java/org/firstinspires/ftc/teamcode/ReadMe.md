@@ -11,4 +11,4 @@ Computer-aided Design(CAD) for this season(Into the Deep): <a href="https://cad.
 Email: <ftc30099@gmai.com><br />
 Other Github repository(might be easier to find stuff): <a href="https://github.com/SevenIsAtEleven/30099-maximus-is-a-bum/blob/main/main.java">Into the Deep Repo</a><br />
 
-## Thanks for visiting our Repo! Please visit our website and also consider sponsoring our team or donating!
+### Thanks for visiting our Repo! Please visit our website and also consider donating to our team!
