@@ -5,8 +5,8 @@ We are an FTC robotics team based in Irvine, California. So if you live nearby a
 </pre>
 ## Resources
 Website: <a href="https://v2.ftc30099.com">OmicronX</a><br />
-Computer-aided Design(CAD) for this season(Into the Deep): <a href="https://cad.onshape.com/documents/6fba0affd7371c0076f5805e/w/4ec63f80cc81c7cb112896a5/e/277cc521092787c35fbf36e4">Onshape</a>
-Email: <ftc30099@gmai.com>
-Other Github repository(might be easier to find stuff): <a href="https://github.com/SevenIsAtEleven/30099-maximus-is-a-bum/blob/main/main.java">Into the Deep Repo</a>
+Computer-aided Design(CAD) for this season(Into the Deep): <a href="https://cad.onshape.com/documents/6fba0affd7371c0076f5805e/w/4ec63f80cc81c7cb112896a5/e/277cc521092787c35fbf36e4">Onshape</a><br />
+Email: <ftc30099@gmai.com><br />
+Other Github repository(might be easier to find stuff): <a href="https://github.com/SevenIsAtEleven/30099-maximus-is-a-bum/blob/main/main.java">Into the Deep Repo</a><br />
 
 ## Thanks for visiting our Repo! Please visit our website and also consider sponsoring our team or donating!
