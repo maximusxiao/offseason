@@ -109,7 +109,7 @@ Not yet finished; Coming soon!
   </pre>
 3. Intake servo(s)<br />
   <pre>
-     Name(s): intake_crservo
+    Name(s): intake_crservo<br />
     Port(s): idk, Max  pls put this<br />
   </pre>
 
