@@ -2,7 +2,7 @@
 
 ## Gamepad mappings <br />
 ### V Manual
-#### <ins>Gamepad 1</ins>
+#### Gamepad 1
 * Left Joystick
 <pre>
   Used for driving, forwards, backwards, sideways(strafing)
@@ -19,35 +19,35 @@
 <pre>
   Spinning intake mechanism
 </pre>
-* Left Bumper
+* ~~Left Bumper~~
 <pre>
   Not yet configured
 </pre>
-* Right Bumper
+* ~~Right Bumper~~
 <pre>
   Not yet configured
 </pre>
-* Button A
+* ~~Button A~~
 <pre>
   Not yet configured
 </pre>
-* Button B
+* ~~Button B~~
 <pre>
   Not yet configured
 </pre>
-* Button X
+* ~~Button X~~
 <pre>
   Not yet configured
 </pre>
-* Button Y
+* ~~Button Y~~
 <pre>
   Not yet configured
 </pre>
-* D-pad
+* ~~D-pad~~
 <pre>
   Not yet configured
 </pre><br />
-#### <ins>Gamepad 2</ins>
+#### Gamepad 2
 
 
 ## Hub Port Mappings
