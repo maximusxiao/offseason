@@ -2,7 +2,7 @@
 
 ## Gamepad mappings <br />
 ### V Manual
-#### Gamepad 1
+### <ins>Gamepad 1</ins>
 
 
 
