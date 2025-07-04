@@ -10,7 +10,7 @@ import org.firstinspires.ftc.teamcode.robot;
 public class main extends LinearOpMode {
 
     // External class implementation to make code neater
-    private robot sys = new robot();
+    private system sys = new system();
 
     // Connect motors
     // ID should match config
