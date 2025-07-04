@@ -97,9 +97,19 @@
 Not yet finished; Coming soon!
 
 ## Extension/Control Hub Port Mappings<br />
-1. Drive motors<br />
-   <pre>Names: motor_f_l, motor_f_r, motor_b_l, motor_b_l<br />
-   Ports: idk, Max pls put this<br />
-   </pre>
-
+1. Drive motor(s)<br />
+  <pre>
+    Name(s): motor_f_l, motor_f_r, motor_b_l, motor_b_l<br />
+    Port(s): idk, Max pls put this<br />
+  </pre>
+2. Extendo motor(s)<br />
+  <pre>
+    Name(s): motor_extendo<br />
+    Port(s): idk, Max pls put this<br />
+  </pre>
+3. Intake servo(s)<br />
+  <pre>
+     Name(s): intake_crservo
+    Port(s): idk, Max  pls put this<br />
+  </pre>
 
