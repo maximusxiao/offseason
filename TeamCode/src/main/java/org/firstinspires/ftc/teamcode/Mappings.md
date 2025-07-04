@@ -1,10 +1,9 @@
 # Mappings List
 
-## Gamepad mappings
-<ul>
-  <li>
-    asdf
-  </li>
-</ul>
+## Gamepad mappings <br />
+### V Manual
+#### Gamepad 1
+
+
 
 ## Hub Port Mappings
