@@ -11,11 +11,11 @@
 <pre>
   Used for rotation/turning of robot
 </pre>
-* Right Trigger
+* ~~Right Trigger~~
 <pre>
   Not yet configured
 </pre>
-* Left Trigger
+* ~~Left Trigger~~
 <pre>
   Not yet configured
 </pre>
