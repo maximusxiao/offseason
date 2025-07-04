@@ -1,7 +1,7 @@
 # Mappings List
 
 ## Gamepad mappings <br />
-### V Manual
+### Manual Version
 #### Gamepad 1
 * Left Joystick
 <pre>
@@ -93,5 +93,13 @@
 <pre>
   Not yet configured; Up and down will likely be configured to endgame hang, while left and right control movement of claw.
 </pre><br />
+### Semi-auto version<br />
+Not yet finished; Coming soon!
 
-## Hub Port Mappings
+## Extension/Control Hub Port Mappings<br />
+1. Drive motors<br />
+   <pre>Names: motor_f_l, motor_f_r, motor_b_l, motor_b_l<br />
+        Ports: idk, Max pls put this<br />
+   </pre>
+
+
