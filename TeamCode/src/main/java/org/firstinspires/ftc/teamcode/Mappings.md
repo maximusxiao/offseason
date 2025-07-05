@@ -97,6 +97,7 @@
 Not yet finished; Coming soon!
 
 ## Extension/Control Hub Port Mappings<br />
+### See <a href="https://github.com/maximusxiao/offseason/blob/master/TeamCode/src/main/res/xml/hardware_config.xml">hardware_config</a>
 1. Drive motor(s)<br />
   <pre>
     Name(s): motor_f_l, motor_f_r, motor_b_l, motor_b_l<br />
