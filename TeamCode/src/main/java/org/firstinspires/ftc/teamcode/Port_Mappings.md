@@ -1,6 +1,4 @@
 # Port Mappings List
-### Semi-auto version<br />
-Not yet finished; Coming soon!
 
 ## Extension/Control Hub Port Mappings<br />
 ### See <a href="https://github.com/maximusxiao/offseason/blob/master/TeamCode/src/main/res/xml/hardware_config.xml">hardware_config</a>
