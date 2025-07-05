@@ -14,7 +14,7 @@
   </pre>
 3. Intake servo(s)<br />
   <pre>
-    Name(s): crservo_intake<br />
-    Port(s): CHS1<br />
+    Name(s): crservo_intake, servo_pitch, servo_intake_pod<br />
+    Port(s): CHS1, CHS3, CHS5<br />
   </pre>
 
