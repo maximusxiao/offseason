@@ -23,6 +23,9 @@ public class main extends LinearOpMode {
     private DcMotor extendo_motor;
     private CRServo intake_crservo;
 
+    private DcMotor lift_motor_l;
+    private DcMotor lift_motor_r;
+
     @Override
     public void runOpMode() throws InterruptedException {
         motor_fl = hardwareMap.dcMotor.get("motor_f_l");
@@ -32,6 +35,9 @@ public class main extends LinearOpMode {
 
         intake_crservo = hardwareMap.crservo.get("crservo_intake");
         extendo_motor = hardwareMap.dcMotor.get("motor_extendo");
+
+        lift_motor_l = hardwareMap.dcMotor.get("motor_lift_l");
+        lift_motor_r = hardwareMap.dcMotor.get("motor_lift_r");
 
     /*while (opModeInInit()) {
             sys.funny_start_sequence(h_slide_motor);
