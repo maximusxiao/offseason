@@ -53,7 +53,7 @@
 </pre>
 * Right Joystick
 <pre>
-  Not yet configured; Up and down will likely be configured for vertical slides.
+  Movement of lift. Up = upward, down = downward; Sideways movement of joystick not configured to functon
 </pre>
 * Right Trigger
 <pre>
