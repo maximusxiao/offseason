@@ -1,11 +1,8 @@
 package org.firstinspires.ftc.teamcode;
 
-import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
-import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.CRServo;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
-import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.Gamepad;
 
 public class system {
@@ -32,7 +29,7 @@ public class system {
         motor_f_r.setPower(power_fr);
         motor_b_r.setPower(power_br);
     }
-    public void extendo(Gamepad gamepad2, DcMotor extendo) {
+    public void extendo(Gamepad gamepad2, DcMotorEx extendo) {
         double extension = -gamepad2.left_stick_y;
         double slide_power = extension;
 
@@ -41,12 +38,12 @@ public class system {
 
     public void intake(Gamepad gamepad2, CRServo intake_crservo) {
         double fwd_spin = gamepad2.left_trigger;
-        double rvrse_spin = gamepad2.right_trigger;
-        double spin_power = fwd_spin - rvrse_spin;
+        double reverse_spin = gamepad2.right_trigger;
+        double spin_power = fwd_spin - reverse_spin;
 
         intake_crservo.setPower(spin_power);
     }
-    public  void lift(Gamepad gamepad2, DcMotorEx lift1, DcMotorEx lift2){
+    public void lift(Gamepad gamepad2, DcMotorEx lift1, DcMotorEx lift2){
         double lift_power = -gamepad2.right_stick_y;
         lift1.setPower(lift_power);
         lift2.setPower(-lift_power);

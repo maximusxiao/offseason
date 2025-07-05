@@ -2,9 +2,9 @@ package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
+import com.qualcomm.robotcore.hardware.CRServo;
 import com.qualcomm.robotcore.hardware.DcMotor;
-import com.qualcomm.robotcore.hardware.DcMotorSimple;
-import org.firstinspires.ftc.teamcode.robot;
+import com.qualcomm.robotcore.hardware.DcMotorEx;
 
 @TeleOp
 public class main extends LinearOpMode {
@@ -14,24 +14,26 @@ public class main extends LinearOpMode {
 
     // Connect motors
     // ID should match config
-    private DcMotor motor_fl;
-    private DcMotor motor_bl;
-    private DcMotor motor_fr;
-    private DcMotor motor_br;
-
+    private DcMotorEx motor_fl, motor_bl, motor_fr, motor_br;
     //intake config
-    private DcMotor extendo_motor;
+    private DcMotorEx extendo;
     private CRServo intake_crservo;
+
+    private DcMotorEx liftL;
+    private DcMotorEx liftR;
 
     @Override
     public void runOpMode() throws InterruptedException {
-        motor_fl = hardwareMap.dcMotor.get("motor_f_l");
-        motor_bl = hardwareMap.dcMotor.get("motor_b_l");
-        motor_fr = hardwareMap.dcMotor.get("motor_f_r");
-        motor_br = hardwareMap.dcMotor.get("motor_b_r");
+        motor_fl = hardwareMap.get(DcMotorEx.class, "FL");
+        motor_bl = hardwareMap.get(DcMotorEx.class, "BL");
+        motor_fr = hardwareMap.get(DcMotorEx.class, "FR");
+        motor_br = hardwareMap.get(DcMotorEx.class, "BR");
 
-        intake_crservo = hardwareMap.crservo.get("crservo_intake");
-        extendo_motor = hardwareMap.dcMotor.get("motor_extendo");
+        intake_crservo = hardwareMap.get(CRServo.class, "intake");
+        extendo = hardwareMap.get(DcMotorEx.class, "extendo");
+
+        liftL = hardwareMap.get(DcMotorEx.class, "liftL");
+        liftR = hardwareMap.get(DcMotorEx.class, "liftR");
 
     /*while (opModeInInit()) {
             sys.funny_start_sequence(h_slide_motor);
@@ -51,7 +53,8 @@ public class main extends LinearOpMode {
     }
     public void update() {
         sys.drive(gamepad1, motor_fl, motor_bl, motor_fr, motor_br);
-        sys.extendo(gamepad2, extendo_motor);
+        sys.extendo(gamepad2, extendo);
         sys.intake(gamepad2, intake_crservo);
+        sys.lift(gamepad2, liftL, liftR);
     }
 }
