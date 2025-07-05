@@ -2,12 +2,12 @@ package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
-import com.qualcomm.robotcore.hardware.CRServo;
 import com.qualcomm.robotcore.hardware.DcMotor;
-import com.qualcomm.robotcore.hardware.DcMotorEx;
+import com.qualcomm.robotcore.hardware.DcMotorSimple;
+import org.firstinspires.ftc.teamcode.robot;
 
 @TeleOp
-public class solodrive extends LinearOpMode {
+public class main extends LinearOpMode {
 
     // External class implementation to make code neater
     private system sys = new system();
@@ -22,7 +22,6 @@ public class solodrive extends LinearOpMode {
     //intake config
     private DcMotor extendo_motor;
     private CRServo intake_crservo;
-    private DcMotorEx lift1, lift2;
 
     @Override
     public void runOpMode() throws InterruptedException {
@@ -31,11 +30,8 @@ public class solodrive extends LinearOpMode {
         motor_fr = hardwareMap.dcMotor.get("motor_f_r");
         motor_br = hardwareMap.dcMotor.get("motor_b_r");
 
-        intake_crservo = hardwareMap.crservo.get("intake");
-        extendo_motor = hardwareMap.dcMotor.get("extendo");
-        lift1 = hardwareMap.get(DcMotorEx.class, "lift1");
-        lift2 = hardwareMap.get(DcMotorEx.class, "lift2");
-
+        intake_crservo = hardwareMap.crservo.get("crservo_intake");
+        extendo_motor = hardwareMap.dcMotor.get("motor_extendo");
 
     /*while (opModeInInit()) {
             sys.funny_start_sequence(h_slide_motor);
@@ -57,6 +53,5 @@ public class solodrive extends LinearOpMode {
         sys.drive(gamepad1, motor_fl, motor_bl, motor_fr, motor_br);
         sys.extendo(gamepad2, extendo_motor);
         sys.intake(gamepad2, intake_crservo);
-        sys.lift(gamepad2, lift1, lift2);
     }
 }
