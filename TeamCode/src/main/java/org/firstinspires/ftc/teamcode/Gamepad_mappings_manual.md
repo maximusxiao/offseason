@@ -1,6 +1,6 @@
-## Gamepad mappings <br />
-### Manual Version
-#### Gamepad 1
+# Gamepad mappings <br />
+## Manual Version
+### Gamepad 1
 * Left Joystick
 <pre>
   Used for driving, forwards, backwards, sideways(strafing)
@@ -46,7 +46,7 @@
   Not yet configured
 </pre><br />
 
-#### Gamepad 2
+### Gamepad 2
 * Left Joystick
 <pre>
   Movement of Extendo. Up = outward, down = inward; Sideways movement of joystick not configured to function.
