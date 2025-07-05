@@ -5,7 +5,7 @@
             <goBILDA5202SeriesMotor name="motor_lift_r" port="0" />
             <goBILDA5202SeriesMotor name="motor_lift_l" port="1" />
             <goBILDA5202SeriesMotor name="motor_extendo" port="2" />
-            <Servo name="servo_flip" port="0" />
+            <Servo name="servo_wrist" port="0" />
             <Servo name="servo_arm_l" port="1" />
             <Servo name="servo_claw" port="2" />
             <Servo name="servo_stilt_l" port="3" />
