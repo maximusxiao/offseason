@@ -59,5 +59,6 @@ public class main extends LinearOpMode {
         sys.drive(gamepad1, motor_fl, motor_bl, motor_fr, motor_br);
         sys.extendo(gamepad2, extendo_motor);
         sys.intake(gamepad2, intake_crservo);
+        sys.lift(gamepad2, lift_motor_l,. lift_motor_r);
     }
 }
