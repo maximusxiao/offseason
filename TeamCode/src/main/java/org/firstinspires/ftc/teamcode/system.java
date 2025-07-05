@@ -33,8 +33,7 @@ public class system {
         motor_b_r.setPower(power_br);
     }
     public void extendo(Gamepad gamepad2, DcMotor extendo) {
-        double extension = -gamepad2.left_stick_y;
-        double slide_power = extension;
+        double slide_power = -gamepad2.left_stick_y;
 
         extendo.setPower(slide_power);
     }
@@ -46,10 +45,10 @@ public class system {
 
         intake_crservo.setPower(spin_power);
     }
-    public  void lift(Gamepad gamepad2, DcMotorEx lift1, DcMotorEx lift2){
+    public  void lift(Gamepad gamepad2, DcMotorEx lift_r, DcMotorEx lift_l){
         double lift_power = -gamepad2.right_stick_y;
-        lift1.setPower(lift_power);
-        lift2.setPower(-lift_power);
+        lift_r.setPower(lift_power);
+        lift_l.setPower(lift_power);
     }
 
     /*public void intake_pod(Gamepad gamepad2, Servo intake_pod_r, Servo intake_pod_l) {
