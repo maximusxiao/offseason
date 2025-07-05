@@ -25,7 +25,7 @@
             <Servo name="servo_stilt_r" port="2" />
             <Servo name="servo_pitch" port="3" />
             <Servo name="servo_sweeper" port="4" />
-            <Servo name="servo_dropdown" port="5" />
+            <Servo name="servo_intake_pod" port="5" />
             <RevColorSensorV3 name="sensor_color" port="0" bus="2" />
             <ControlHubImuBHI260AP name="imu" port="0" bus="0" />
             <SparkFunOTOS2 name="sensor_otos" port="0" bus="1" />
