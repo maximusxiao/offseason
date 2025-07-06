@@ -40,17 +40,16 @@ public class main extends LinearOpMode {
         lift_l = hardwareMap.get(DcMotorEx.class, "motor_lift_l");
         lift_r = hardwareMap.get(DcMotorEx.class, "motor_lift_l");
 
-    /*while (opModeInInit()) {
+    	/*while (opModeInInit()) {
             sys.funny_start_sequence(h_slide_motor);
         }*/
 
         waitForStart();
-
+	
         // End when stop is pressed
         if (isStopRequested()) {
             return;
         }
-
         // Separate method implementation
         while (opModeIsActive()) {
             this.update();
@@ -60,9 +59,9 @@ public class main extends LinearOpMode {
         if (gamepad2.right_bumper) {
 	    sys.intake_pod(intake_pod_srvo);
 	}
-	/*if (gamepad2.left_bumper) {
+	if (gamepad2.left_bumper) {
 	    sys.pitch(pitch_servo);
-	}*/
+	}
 	sys.drive(gamepad1, motor_fl, motor_bl, motor_fr, motor_br);
         sys.extendo(gamepad2, extendo);
         sys.intake(gamepad2, intake_crservo);
