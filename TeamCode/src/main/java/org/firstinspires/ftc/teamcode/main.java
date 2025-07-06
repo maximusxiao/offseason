@@ -60,9 +60,9 @@ public class main extends LinearOpMode {
         if (gamepad2.right_bumper) {
 	    sys.intake_pod(intake_pod_srvo);
 	}
-	/*if (gamepad2.left_bumper) {
+	if (gamepad2.left_bumper) {
 	    sys.pitch(pitch_servo);
-	}*/
+	}
 	sys.drive(gamepad1, motor_fl, motor_bl, motor_fr, motor_br);
         sys.extendo(gamepad2, extendo);
         sys.intake(gamepad2, intake_crservo);
