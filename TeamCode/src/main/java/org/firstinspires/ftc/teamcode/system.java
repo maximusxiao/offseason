@@ -43,22 +43,15 @@ public class system {
 
         intake_crservo.setPower(spin_power);
     }
-    public void lift(Gamepad gamepad2, DcMotorEx lift1, DcMotorEx lift2){
+    public void lift(Gamepad gamepad2, DcMotorEx lift1, DcMotorEx lift2) {
         double lift_power = -gamepad2.right_stick_y;
         lift1.setPower(lift_power);
         lift2.setPower(-lift_power);
     }
 
-    /*public void intake_pod(Gamepad gamepad2, Servo intake_pod_r, Servo intake_pod_l) {
-        double current_pos_r = intake_pod_r.getPosition();
-        double current_pos_l = intake_pod_l.getPosition();
-
-
-        intake_pod_r.scaleRange(0.0, 1.0);
-        intake_pod_l.scaleRange(0.0, 1.0);
-        intake_pod_r.setPosition(pos);
-        intake_pod_l.setPosition(pos);
-    }*/
+    public void intake_pod(Gamepad gamepad2, Servo intake_pod) {
+        double current_pos = intake_pod.getPosition();
+    }
 
     // BETA!!!
     // funny start up sequence cos why not
