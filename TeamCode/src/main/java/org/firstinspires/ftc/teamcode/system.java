@@ -51,22 +51,22 @@ public class system {
 
     public void intake_pod(Servo intake_pod) {
         double current_pos = intake_pod.getPosition();
-		double[] positions = [0.0, 0.33];
-		double next_pos;
+	double[] positions = [0.0, 0.33];
+	double next_pos;
 		
-		if (current_pos == positions[0]) {
-			next_pos = positions[1];
-		}
-		else {
-			next_pos = positions[0];
-		}
+	if (current_pos == positions[0]) {
+	    next_pos = positions[1];
+	}
+	else {
+	    next_pos = positions[0];
+	}
 		
-		intake_pod.setPosition()
+	    intake_pod.setPosition()
     }
 	
-	/*public void pitch(Servo pitch_servo) {
+    /*public void pitch(Servo pitch_servo) {
 		
-	}*/
+    }*/
 
     // BETA!!!
     // funny start up sequence cos why not
