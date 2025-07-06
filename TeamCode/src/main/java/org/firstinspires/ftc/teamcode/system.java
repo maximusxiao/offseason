@@ -45,28 +45,36 @@ public class system {
     }
     public void lift(Gamepad gamepad2, DcMotorEx lift_l, DcMotorEx lift_r) {
         double lift_power = -gamepad2.right_stick_y;
-        lift_l.setPower(lift_power);
+        
+	lift_l.setPower(lift_power);
         lift_r.setPower(-lift_power);
     }
-
     public void intake_pod(Servo intake_pod) {
-        double current_pos = intake_pod.getPosition();
+        double curr_pos = intake_pod.getPosition();
 	double[] positions = [0.0, 0.33];
 	double next_pos;
 		
-	if (current_pos == positions[0]) {
+	if (curr_pos == positions[0]) {
 	    next_pos = positions[1];
 	}
 	else {
 	    next_pos = positions[0];
+	}		
+	intake_pod.setPosition(next_pos)
+    }	
+    public void pitch(Servo pitch_servo) {
+	double curr_pitch = pitch_servo.getPosition();
+	double[] pitches = [0.0, 0.125];
+	double next_pitch;
+		
+	if (curr_pitch == pitches[0]) {
+	    next_pitch = pitches[1];
 	}
-		
-	    intake_pod.setPosition()
+	else {
+	    next_pitch = pitches[0];
+	}		
+	pitch_servo.setPosition(next_pitch)
     }
-	
-    /*public void pitch(Servo pitch_servo) {
-		
-    }*/
 
     // BETA!!!
     // funny start up sequence cos why not
