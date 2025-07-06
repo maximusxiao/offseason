@@ -59,8 +59,7 @@ public class system {
 		
 	if (curr_pos == positions[0]) {
 	    next_pos = positions[1];
-	}
-	else {
+	} else {
 	    next_pos = positions[0];
 	}		
 	intake_pod.setPosition(next_pos)
@@ -72,8 +71,7 @@ public class system {
 		
 	if (curr_pitch == pitches[0]) {
 	    next_pitch = pitches[1];
-	}
-	else {
+	} else {
 	    next_pitch = pitches[0];
 	}		
 	pitch_srvo.setPosition(next_pitch)
@@ -85,8 +83,7 @@ public class system {
 
 	if (curr_claw_pos == claw_positions[0]) {
 	    next_claw_pos = claw_positions[1];
-	}
-	else {
+	} else {
 	    next_claw_pos = claw_positions[0];
 	}
 	claw_srvo.setPosition(next_claw_pos);
@@ -98,11 +95,13 @@ public class system {
 
 	if (curr_wrist_pos == wrist_positions[0]) {
 	    next_wrist_pos = wrist_positions[1];
-	}
-	else {
+	} else {
 	    next_wrist_pos = wrist_positions[0];
 	}
 	wrist_srvo.setPosition(next_wrist_pos);
+    }
+    public void arm(Servo arm_l, Servo arm_r, boolean forward) {
+	double curr_arm_pos_l = arm_l
     }
 
     // BETA!!!
