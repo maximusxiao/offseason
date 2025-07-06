@@ -57,23 +57,23 @@
 </pre>
 * Right Trigger
 <pre>
-  Rejection of block in intake
+  Spinning intake mechanism
 </pre>
 * Left Trigger
 <pre>
-  Spinning intake mechanism
+  Rejection of block in intake
 </pre>
-* ~~Left Bumper~~
+* Left Bumper
 <pre>
-  Not yet configured
+  Used for adjusting pitch of intake pod
 </pre>
-* ~~Right Bumper~~
+* Right Bumper
 <pre>
-  Not yet configured
+  Used for rotation of arm controlling intake pod
 </pre>
 * Button A
 <pre>
-  Used for rotation of arm controlling intake pod
+  Not yet configured; but will likely be used to set state of rotating arm.
 </pre>
 * ~~Button B~~
 <pre>
