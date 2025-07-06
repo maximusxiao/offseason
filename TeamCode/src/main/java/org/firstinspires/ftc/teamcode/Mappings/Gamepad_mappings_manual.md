@@ -71,9 +71,9 @@
 <pre>
   Not yet configured
 </pre>
-* ~~Button A~~
+* Button A
 <pre>
-  Not yet configured; but will likely be used to set state of rotating arm.
+  Used for rotation of arm controlling intake pod
 </pre>
 * ~~Button B~~
 <pre>
