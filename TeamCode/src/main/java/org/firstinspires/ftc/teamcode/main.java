@@ -19,21 +19,21 @@ public class main extends LinearOpMode {
     private DcMotorEx extendo;
     private CRServo intake_crservo;
 
-    private DcMotorEx liftL;
-    private DcMotorEx liftR;
+    private DcMotorEx lift_l;
+    private DcMotorEx lift_r;
 
     @Override
     public void runOpMode() throws InterruptedException {
-        motor_fl = hardwareMap.get(DcMotorEx.class, "FL");
-        motor_bl = hardwareMap.get(DcMotorEx.class, "BL");
-        motor_fr = hardwareMap.get(DcMotorEx.class, "FR");
-        motor_br = hardwareMap.get(DcMotorEx.class, "BR");
+        motor_fl = hardwareMap.get(DcMotorEx.class, "motor_f_l");
+        motor_bl = hardwareMap.get(DcMotorEx.class, "motor_b_l");
+        motor_fr = hardwareMap.get(DcMotorEx.class, "motor_f_r");
+        motor_br = hardwareMap.get(DcMotorEx.class, "motor_b_r");
 
-        intake_crservo = hardwareMap.get(CRServo.class, "intake");
-        extendo = hardwareMap.get(DcMotorEx.class, "extendo");
+        intake_crservo = hardwareMap.get(CRServo.class, "crservo_intake");
+        extendo = hardwareMap.get(DcMotorEx.class, "motor_extendo");
 
-        liftL = hardwareMap.get(DcMotorEx.class, "liftL");
-        liftR = hardwareMap.get(DcMotorEx.class, "liftR");
+        lift_l = hardwareMap.get(DcMotorEx.class, "motor_lift_l");
+        lift_r = hardwareMap.get(DcMotorEx.class, "motor_lift_l");
 
     /*while (opModeInInit()) {
             sys.funny_start_sequence(h_slide_motor);
@@ -55,6 +55,6 @@ public class main extends LinearOpMode {
         sys.drive(gamepad1, motor_fl, motor_bl, motor_fr, motor_br);
         sys.extendo(gamepad2, extendo);
         sys.intake(gamepad2, intake_crservo);
-        sys.lift(gamepad2, liftL, liftR);
+        sys.lift(gamepad2, lift_l, lift_r);
     }
 }
