@@ -65,8 +65,8 @@ public class system {
 	}		
 	intake_pod.setPosition(next_pos)
     }	
-    public void pitch(Servo pitch_servo) {
-	double curr_pitch = pitch_servo.getPosition();
+    public void pitch(Servo pitch_srvo) {
+	double curr_pitch = pitch_srvo.getPosition();
 	double next_pitch;
 	double[] pitches = [0.0, 0.125];
 		
@@ -76,10 +76,10 @@ public class system {
 	else {
 	    next_pitch = pitches[0];
 	}		
-	pitch_servo.setPosition(next_pitch)
+	pitch_srvo.setPosition(next_pitch)
     }
-    public void claw(Servo claw_servo) {
-	double curr_claw_pos = claw_servo.getPosition();
+    public void claw(Servo claw_srvo) {
+	double curr_claw_pos = claw_srvo.getPosition();
 	double next_claw_pos;
 	double[] claw_positions = [0.0, 0.09];
 
@@ -89,7 +89,20 @@ public class system {
 	else {
 	    next_claw_pos = claw_positions[0];
 	}
-	claw_servo.setPosition(next_claw_pos);
+	claw_srvo.setPosition(next_claw_pos);
+    }
+    public void wrist(Servo wrist_srvo) {
+	double curr_wrist_pos = wrist_srvo.getPosition();
+	double next_wrist_pos;
+	double[] wrist_positions = [0.0, 0.375]
+
+	if (curr_wrist_pos == wrist_positions[0]) {
+	    next_wrist_pos = wrist_positions[1];
+	}
+	else {
+	    next_wrist_pos = wrist_positions[0];
+	}
+	wrist_srvo.setPosition(next_wrist_pos);
     }
 
     // BETA!!!
