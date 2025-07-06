@@ -67,8 +67,8 @@ public class system {
     }	
     public void pitch(Servo pitch_servo) {
 	double curr_pitch = pitch_servo.getPosition();
-	double[] pitches = [0.0, 0.125];
 	double next_pitch;
+	double[] pitches = [0.0, 0.125];
 		
 	if (curr_pitch == pitches[0]) {
 	    next_pitch = pitches[1];
@@ -77,6 +77,19 @@ public class system {
 	    next_pitch = pitches[0];
 	}		
 	pitch_servo.setPosition(next_pitch)
+    }
+    public void claw(Servo claw_servo) {
+	double curr_claw_pos = claw_servo.getPosition();
+	double next_claw_pos;
+	double[] claw_positions = [0.0, 0.09];
+
+	if (curr_claw_pos == claw_positions[0]) {
+	    next_claw_pos = claw_positions[1];
+	}
+	else {
+	    next_claw_pos = claw_positions[0];
+	}
+	claw_servo.setPosition(next_claw_pos);
     }
 
     // BETA!!!
