@@ -40,9 +40,9 @@ public class main extends LinearOpMode {
         lift_l = hardwareMap.get(DcMotorEx.class, "motor_lift_l");
         lift_r = hardwareMap.get(DcMotorEx.class, "motor_lift_l");
 
-    	/*while (opModeInInit()) {
-            sys.funny_start_sequence(h_slide_motor);
-        }*/
+    	while (opModeInInit()) {
+            sys.funny_start_sequence(extendo);
+        }
 
         waitForStart();
 	
