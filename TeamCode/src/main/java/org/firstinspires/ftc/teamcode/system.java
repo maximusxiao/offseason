@@ -1,5 +1,8 @@
 package org.firstinspires.ftc.teamcode;
 
+import java.util.concurrent.TimeUnit;
+
+// Program specific imports
 import com.qualcomm.robotcore.hardware.CRServo;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.hardware.DcMotor;
@@ -78,9 +81,9 @@ public class system {
 
     // BETA!!!
     // funny start up sequence cos why not
-    /*public void funny_start_sequence(DcMotor h_slide_motor) {
-        h_slide_motor.setPower(0.5);
-        Thread.sleep(750000000);
-        h_slide_motor.setPower(0.5;
-    }*/
+    public void funny_start_sequence(DcMotor extendo) {
+        extendo.setPower(0.5);
+        TimeUnit.SECONDS.sleep(0.5);
+        extendo.setPower(-0.5);
+    }
 }
