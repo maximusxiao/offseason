@@ -17,13 +17,16 @@ public class main extends LinearOpMode {
     // ID should match config
     private DcMotorEx motor_fl, motor_bl, motor_fr, motor_br;
     
-	// Intake config
+    // Intake config
     private DcMotorEx extendo;
     private CRServo intake_crservo;
     private Servo intake_pod_srvo, pitch_servo;
 	
-	// Lift
+    // Lift
     private DcMotorEx lift_l, lift_r;
+
+    // Transfer/Outtake
+    private Servo claw_servo, wrist_servo;
 
     @Override
     public void runOpMode() throws InterruptedException {
@@ -39,6 +42,9 @@ public class main extends LinearOpMode {
 
         lift_l = hardwareMap.get(DcMotorEx.class, "motor_lift_l");
         lift_r = hardwareMap.get(DcMotorEx.class, "motor_lift_l");
+
+	claw_servo = hardwareMap.get(Servo.class, "servo_claw");
+	wrist_servo = hardwareMap.get(Servo.class, "servo_wrist");
 
     	while (opModeInInit()) {
             sys.funny_start_sequence(extendo);
@@ -61,6 +67,9 @@ public class main extends LinearOpMode {
 	}
 	if (gamepad2.left_bumper) {
 	    sys.pitch(pitch_servo);
+	}
+	if (gamepad2.a) {
+	    sys.claw(claw_servo);
 	}
 	sys.drive(gamepad1, motor_fl, motor_bl, motor_fr, motor_br);
         sys.extendo(gamepad2, extendo);
