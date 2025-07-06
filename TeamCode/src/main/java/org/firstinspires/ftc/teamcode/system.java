@@ -1,6 +1,7 @@
 package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.hardware.CRServo;
+import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.Gamepad;
@@ -30,35 +31,42 @@ public class system {
         motor_b_r.setPower(power_br);
     }
     public void extendo(Gamepad gamepad2, DcMotorEx extendo) {
-        double extension = -gamepad2.left_stick_y;
-        double slide_power = extension;
+        double slide_power = -gamepad2.left_stick_y;
 
         extendo.setPower(slide_power);
     }
 
     public void intake(Gamepad gamepad2, CRServo intake_crservo) {
-        double fwd_spin = gamepad2.left_trigger;
-        double reverse_spin = gamepad2.right_trigger;
+        double fwd_spin = gamepad2.right_trigger;
+        double reverse_spin = gamepad2.left_trigger;
         double spin_power = fwd_spin - reverse_spin;
 
         intake_crservo.setPower(spin_power);
     }
-    public void lift(Gamepad gamepad2, DcMotorEx lift1, DcMotorEx lift2){
+    public void lift(Gamepad gamepad2, DcMotorEx lift_l, DcMotorEx lift_r) {
         double lift_power = -gamepad2.right_stick_y;
-        lift1.setPower(lift_power);
-        lift2.setPower(-lift_power);
+        lift_l.setPower(lift_power);
+        lift_r.setPower(-lift_power);
     }
 
-    /*public void intake_pod(Gamepad gamepad2, Servo intake_pod_r, Servo intake_pod_l) {
-        double current_pos_r = intake_pod_r.getPosition();
-        double current_pos_l = intake_pod_l.getPosition();
-
-
-        intake_pod_r.scaleRange(0.0, 1.0);
-        intake_pod_l.scaleRange(0.0, 1.0);
-        intake_pod_r.setPosition(pos);
-        intake_pod_l.setPosition(pos);
-    }*/
+    public void intake_pod(Servo intake_pod) {
+        double current_pos = intake_pod.getPosition();
+		double[] positions = [0.0, 0.33];
+		double next_pos;
+		
+		if (current_pos == positions[0]) {
+			next_pos = positions[1];
+		}
+		else {
+			next_pos = positions[0];
+		}
+		
+		intake_pod.setPosition()
+    }
+	
+	/*public void pitch(Servo pitch_servo) {
+		
+	}*/
 
     // BETA!!!
     // funny start up sequence cos why not
