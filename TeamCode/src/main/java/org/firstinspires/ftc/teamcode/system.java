@@ -1,23 +1,30 @@
 package org.firstinspires.ftc.teamcode;
 
+import static org.firstinspires.ftc.robotcore.external.BlocksOpModeCompanion.telemetry;
+
 import java.util.concurrent.TimeUnit;
 
-// Program specific imports
 import com.qualcomm.robotcore.hardware.CRServo;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.Gamepad;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class system {
-    public void drive(Gamepad gamepad1, DcMotor motor_f_l, DcMotor motor_b_l, DcMotor motor_f_r, DcMotor motor_b_r) {
+    public boolean pitch_active = true;
+	
+	public void drive(Gamepad gamepad1, DcMotor motor_f_l, DcMotor motor_b_l, DcMotor motor_f_r, DcMotor motor_b_r) {
 
         // y_val reversed
-        double y = -gamepad1.left_stick_y;
+        double y = gamepad1.left_stick_y;
 
 
         // Multiplier of 1.17 to counteract strafing range
-        double x = gamepad1.left_stick_x * 1.17;
+        double x = -gamepad1.left_stick_x * 1.17;
         double rx = gamepad1.right_stick_x;
 
         // Range_limiter containes power within range [-1,1]
@@ -33,6 +40,7 @@ public class system {
         motor_f_r.setPower(power_fr);
         motor_b_r.setPower(power_br);
     }
+
     public void extendo(Gamepad gamepad2, DcMotorEx extendo) {
         double slide_power = -gamepad2.left_stick_y;
 
@@ -46,69 +54,52 @@ public class system {
 
         intake_crservo.setPower(spin_power);
     }
+
     public void lift(Gamepad gamepad2, DcMotorEx lift_l, DcMotorEx lift_r) {
         double lift_power = -gamepad2.right_stick_y;
-        
-	lift_l.setPower(lift_power);
-        lift_r.setPower(-lift_power);
+
+        lift_l.setPower(lift_power);
+        lift_r.setPower(lift_power);
+    }
+    public void pitch(Servo pitch_srvo) {
+        double intake_pos = 0.22;
+        double reject_pos = 0.65;
+        double curr_pos = pitch_srvo.getPosition();
+        double next_pos;
+        if (curr_pos > intake_pos-0.05 && curr_pos < intake_pos + 0.05) {
+            next_pos = reject_pos;
+            pitch_srvo.setPosition(next_pos);
+        }
+        if (curr_pos > reject_pos-0.05 && curr_pos < reject_pos + 0.05) {
+            next_pos = intake_pos;
+            pitch_srvo.setPosition(next_pos);
+        }
     }
     public void intake_pod(Servo intake_pod) {
-        double curr_pos = intake_pod.getPosition();
-	double[] positions = [0.0, 0.33];
-	double next_pos;
-		
-	if (curr_pos == positions[0]) {
-	    next_pos = positions[1];
-	} else {
-	    next_pos = positions[0];
-	}		
-	intake_pod.setPosition(next_pos)
-    }	
-    public void pitch(Servo pitch_srvo) {
-	double curr_pitch = pitch_srvo.getPosition();
-	double next_pitch;
-	double[] pitches = [0.0, 0.125];
-		
-	if (curr_pitch == pitches[0]) {
-	    next_pitch = pitches[1];
-	} else {
-	    next_pitch = pitches[0];
-	}		
-	pitch_srvo.setPosition(next_pitch)
+		double intake_pos = 0.22;
+        double transfer_pos = 0.65;
+        double curr_pos = intake_arm.getPosition();
+        double next_pos;
+        if (curr_pos > intake_pos-0.05 && curr_pos < intake_pos + 0.05) {
+            next_pos = transfer_pos;
+            intake_arm.setPosition(next_pos);
+        }
+        if (curr_pos > transfer_pos-0.05 && curr_pos < transfer_pos + 0.05) {
+            next_pos = intake_pos;
+            intake_arm.setPosition(next_pos);
+        }
     }
-    public void claw(Servo claw_srvo) {
-	double curr_claw_pos = claw_srvo.getPosition();
-	double next_claw_pos;
-	double[] claw_positions = [0.0, 0.09];
-
-	if (curr_claw_pos == claw_positions[0]) {
-	    next_claw_pos = claw_positions[1];
-	} else {
-	    next_claw_pos = claw_positions[0];
-	}
-	claw_srvo.setPosition(next_claw_pos);
-    }
-    public void wrist(Servo wrist_srvo) {
-	double curr_wrist_pos = wrist_srvo.getPosition();
-	double next_wrist_pos;
-	double[] wrist_positions = [0.0, 0.375]
-
-	if (curr_wrist_pos == wrist_positions[0]) {
-	    next_wrist_pos = wrist_positions[1];
-	} else {
-	    next_wrist_pos = wrist_positions[0];
-	}
-	wrist_srvo.setPosition(next_wrist_pos);
-    }
-    public void arm(Servo arm_l, Servo arm_r, boolean forward) {
-	double curr_arm_pos_l = arm_l
-    }
-
-    // BETA!!!
-    // funny start up sequence cos why not
-    public void funny_start_sequence(DcMotor extendo) {
-        extendo.setPower(0.5);
-        TimeUnit.SECONDS.sleep(0.5);
-        extendo.setPower(-0.5);
+	public void claw(Servo claw_srvo) {
+		double open_pos = 0.22;
+		double close_pos = 0.65;
+		double curr_pos = claw_srvo.getPosition();
+		if (curr_pos > open_pos-0.05 && curr_pos < open_pos + 0.05) {
+            next_pos = close_pos;
+            claw_srvo.setPosition(next_pos);
+        }
+        if (curr_pos > close_pos-0.05 && curr_pos < close_pos + 0.05) {
+            next_pos = open_pos;
+            claw_srvo.setPosition(next_pos);
+        }
     }
 }
