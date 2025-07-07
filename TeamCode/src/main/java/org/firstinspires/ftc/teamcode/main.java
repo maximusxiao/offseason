@@ -31,26 +31,26 @@ public class main extends LinearOpMode {
     @Override
     public void runOpMode() throws InterruptedException {
         // Edge detection
-		Gamepad curr_gpad1 = new Gamepad();
+	Gamepad curr_gpad1 = new Gamepad();
         Gamepad curr_gpad2 = new Gamepad();
         Gamepad past_gpad1 = new Gamepad();
         Gamepad past_gpad2 = new Gamepad();
 	    
-		motor_fl = hardwareMap.get(DcMotorEx.class, "motor_f_l");
+	motor_fl = hardwareMap.get(DcMotorEx.class, "motor_f_l");
         motor_bl = hardwareMap.get(DcMotorEx.class, "motor_b_l");
         motor_fr = hardwareMap.get(DcMotorEx.class, "motor_f_r");
         motor_br = hardwareMap.get(DcMotorEx.class, "motor_b_r");
 
         intake_crservo = hardwareMap.get(CRServo.class, "crservo_intake");
         extendo = hardwareMap.get(DcMotorEx.class, "motor_extendo");
-		intake_pod_srvo = hardwareMap.get(Servo.class, "servo_intake_pod");
-		pitch_servo = hardwareMap.get(Servo.class, "servo_pitch");
+	intake_pod_srvo = hardwareMap.get(Servo.class, "servo_intake_pod");
+	pitch_servo = hardwareMap.get(Servo.class, "servo_pitch");
 
         lift_l = hardwareMap.get(DcMotorEx.class, "motor_lift_l");
         lift_r = hardwareMap.get(DcMotorEx.class, "motor_lift_l");
 
-		claw_servo = hardwareMap.get(Servo.class, "servo_claw");
-		wrist_servo = hardwareMap.get(Servo.class, "servo_wrist");
+	claw_servo = hardwareMap.get(Servo.class, "servo_claw");
+	wrist_servo = hardwareMap.get(Servo.class, "servo_wrist");
 
     	while (opModeInInit()) {
             sys.funny_start_sequence(extendo);
