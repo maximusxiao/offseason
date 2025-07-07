@@ -19,12 +19,12 @@ public class main extends LinearOpMode {
     // Connect motors
     // ID should match config
     private DcMotorEx motor_fl, motor_bl, motor_fr, motor_br;
-    
+
 	// Intake config
     private DcMotorEx extendo;
     private CRServo intake_crservo;
-    private Servo intake_pod_srvo, pitch_servo;
-	
+    private Servo intake_arm, pitch_servo;
+
 	// Lift
     private DcMotorEx lift_l, lift_r;
 
@@ -37,7 +37,7 @@ public class main extends LinearOpMode {
 
         intake_crservo = hardwareMap.get(CRServo.class, "crservo_intake");
         extendo = hardwareMap.get(DcMotorEx.class, "motor_extendo");
-    	intake_pod_srvo = hardwareMap.get(Servo.class, "servo_intake_pod");
+    	intake_arm = hardwareMap.get(Servo.class, "servo_intake_pod");
 	    pitch_servo = hardwareMap.get(Servo.class, "servo_pitch");
 
         lift_l = hardwareMap.get(DcMotorEx.class, "motor_lift_l");
@@ -47,28 +47,34 @@ public class main extends LinearOpMode {
         Gamepad currentGamepad2 = new Gamepad();
         Gamepad pastGamepad1 = new Gamepad();
         Gamepad pastGamepad2 = new Gamepad();
-        String currIntakePitchPos;
+        String currIntakePos;
+
+        intake_arm.setDirection(Servo.Direction.REVERSE);
+        intake_arm.setPosition(0.65);
 
         waitForStart();
-	
+
         // End when stop is pressed
         if (isStopRequested()) {
             return;
         }
         // Separate method implementation
         while (opModeIsActive()) {
-            currIntakePitchPos = Double.toString(pitch_servo.getPosition());
-            telemetry.addData("intake pitch pos:", currIntakePitchPos);
+            currIntakePos = Double.toString(intake_arm.getPosition());
+            telemetry.addData("intake pitch pos:", currIntakePos);
             telemetry.update();
-            pastGamepad2 = currentGamepad2;
-            if (gamepad2.left_bumper){
-                sys.pitch(pitch_servo);
+            pastGamepad1.copy(currentGamepad1);
+            pastGamepad2.copy(currentGamepad2);
+            currentGamepad1.copy(gamepad1);
+            currentGamepad2.copy(gamepad2);
+            if(currentGamepad2.left_bumper && !pastGamepad2.left_bumper){
+                sys.intake_arm(intake_arm);
             }
             sys.drive(gamepad1, motor_fl, motor_bl, motor_fr, motor_br);
             sys.extendo(gamepad2, extendo);
             sys.intake(gamepad2, intake_crservo);
             sys.lift(gamepad2, lift_l, lift_r);
-            currentGamepad2 = gamepad2;
+            sys.intake_pitch(pitch_servo);
         }
     }
 }

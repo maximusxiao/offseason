@@ -1,5 +1,6 @@
 package org.firstinspires.ftc.teamcode;
 
+import static org.firstinspires.ftc.robotcore.external.BlocksOpModeCompanion.gamepad2;
 import static org.firstinspires.ftc.robotcore.external.BlocksOpModeCompanion.telemetry;
 
 import java.util.concurrent.TimeUnit;
@@ -60,27 +61,23 @@ public class system {
         lift_r.setPower(lift_power);
     }
 
-    public void intake_pod(Servo intake_pod) {
-        double curr_pos = intake_pod.getPosition();
-        List<Double> positions = new ArrayList<>(Arrays.asList(0.0, 0.33));
+    public void intake_arm(Servo intake_arm) {
+        double intake_pos = 0.22;
+        double transfer_pos = 0.65;
+        double curr_pos = intake_arm.getPosition();
         double next_pos;
-
-
-        if (curr_pos == positions.get(0)) {
-            next_pos = positions.get(1);
-        } else {
-            next_pos = positions.get(0);
+        if(curr_pos > intake_pos-0.1 && curr_pos < intake_pos + 0.1){
+            next_pos = transfer_pos;
+            intake_arm.setPosition(next_pos);
         }
-        intake_pod.setPosition(next_pos);
+        if(curr_pos > transfer_pos-0.1 && curr_pos < transfer_pos + 0.1){
+            next_pos = intake_pos;
+            intake_arm.setPosition(next_pos);
+        }
     }
 
-    public void pitch(Servo pitch_servo) {
-        /*if (curr_pos == 0.4) {
-            pitch_servo.setPosition(0.25);
-        } else if (curr_pos == 0.25) {
-            pitch_servo.setPosition(0.4);
-        } else if (curr_pos == 0.1) {
-            pitch_servo.setPosition(0.25);
-        }*/
+    public void intake_pitch(Servo pitch_servo) {
+        double intakePos = 0.45;
+        pitch_servo.setPosition(intakePos);
     }
 }
