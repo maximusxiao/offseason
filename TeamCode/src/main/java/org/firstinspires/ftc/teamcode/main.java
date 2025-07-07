@@ -30,21 +30,27 @@ public class main extends LinearOpMode {
 
     @Override
     public void runOpMode() throws InterruptedException {
-        motor_fl = hardwareMap.get(DcMotorEx.class, "motor_f_l");
+        // Edge detection
+		Gamepad curr_gpad1 = new Gamepad();
+        Gamepad curr_gpad2 = new Gamepad();
+        Gamepad past_gpad1 = new Gamepad();
+        Gamepad past_gpad2 = new Gamepad();
+	    
+		motor_fl = hardwareMap.get(DcMotorEx.class, "motor_f_l");
         motor_bl = hardwareMap.get(DcMotorEx.class, "motor_b_l");
         motor_fr = hardwareMap.get(DcMotorEx.class, "motor_f_r");
         motor_br = hardwareMap.get(DcMotorEx.class, "motor_b_r");
 
         intake_crservo = hardwareMap.get(CRServo.class, "crservo_intake");
         extendo = hardwareMap.get(DcMotorEx.class, "motor_extendo");
-	intake_pod_srvo = hardwareMap.get(Servo.class, "servo_intake_pod");
-	pitch_servo = hardwareMap.get(Servo.class, "servo_pitch");
+		intake_pod_srvo = hardwareMap.get(Servo.class, "servo_intake_pod");
+		pitch_servo = hardwareMap.get(Servo.class, "servo_pitch");
 
         lift_l = hardwareMap.get(DcMotorEx.class, "motor_lift_l");
         lift_r = hardwareMap.get(DcMotorEx.class, "motor_lift_l");
 
-	claw_servo = hardwareMap.get(Servo.class, "servo_claw");
-	wrist_servo = hardwareMap.get(Servo.class, "servo_wrist");
+		claw_servo = hardwareMap.get(Servo.class, "servo_claw");
+		wrist_servo = hardwareMap.get(Servo.class, "servo_wrist");
 
     	while (opModeInInit()) {
             sys.funny_start_sequence(extendo);
@@ -62,13 +68,18 @@ public class main extends LinearOpMode {
         }
     }
     public void update() {
-        if (gamepad2.right_bumper) {
+        past_gpad1.copy(currentGamepad1);
+        past_gpad2.copy(currentGamepad2);
+        curr_gpad1.copy(gamepad1);
+        curr_gpad2.copy(gamepad2);
+	    
+	if (curr_gpad2.right_bumper && !past_gpad2.right_bumper) {
 	    sys.intake_pod(intake_pod_srvo);
 	}
-	if (gamepad2.left_bumper) {
+	if (curr_gpad2.left_bumper && !past_gpad2.left_bumper) {
 	    sys.pitch(pitch_servo);
 	}
-	if (gamepad2.a) {
+	if (curr_gpad2.a && !past_gpad2.a) {
 	    sys.claw(claw_servo);
 	}
 	sys.drive(gamepad1, motor_fl, motor_bl, motor_fr, motor_br);
