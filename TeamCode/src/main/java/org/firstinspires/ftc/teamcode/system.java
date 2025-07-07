@@ -1,6 +1,5 @@
 package org.firstinspires.ftc.teamcode;
 
-import static org.firstinspires.ftc.robotcore.external.BlocksOpModeCompanion.gamepad2;
 import static org.firstinspires.ftc.robotcore.external.BlocksOpModeCompanion.telemetry;
 
 import java.util.concurrent.TimeUnit;
@@ -16,7 +15,9 @@ import java.util.Arrays;
 import java.util.List;
 
 public class system {
-    public void drive(Gamepad gamepad1, DcMotor motor_f_l, DcMotor motor_b_l, DcMotor motor_f_r, DcMotor motor_b_r) {
+    public boolean pitch_active = true;
+	
+	public void drive(Gamepad gamepad1, DcMotor motor_f_l, DcMotor motor_b_l, DcMotor motor_f_r, DcMotor motor_b_r) {
 
         // y_val reversed
         double y = gamepad1.left_stick_y;
@@ -60,24 +61,45 @@ public class system {
         lift_l.setPower(lift_power);
         lift_r.setPower(lift_power);
     }
-
-    public void intake_arm(Servo intake_arm) {
+    public void pitch(Servo pitch_srvo) {
         double intake_pos = 0.22;
+        double reject_pos = 0.65;
+        double curr_pos = pitch_srvo.getPosition();
+        double next_pos;
+        if (curr_pos > intake_pos-0.05 && curr_pos < intake_pos + 0.05) {
+            next_pos = reject_pos;
+            pitch_srvo.setPosition(next_pos);
+        }
+        if (curr_pos > reject_pos-0.05 && curr_pos < reject_pos + 0.05) {
+            next_pos = intake_pos;
+            pitch_srvo.setPosition(next_pos);
+        }
+    }
+    public void intake_pod(Servo intake_pod) {
+		double intake_pos = 0.22;
         double transfer_pos = 0.65;
         double curr_pos = intake_arm.getPosition();
         double next_pos;
-        if(curr_pos > intake_pos-0.1 && curr_pos < intake_pos + 0.1){
+        if (curr_pos > intake_pos-0.05 && curr_pos < intake_pos + 0.05) {
             next_pos = transfer_pos;
             intake_arm.setPosition(next_pos);
         }
-        if(curr_pos > transfer_pos-0.1 && curr_pos < transfer_pos + 0.1){
+        if (curr_pos > transfer_pos-0.05 && curr_pos < transfer_pos + 0.05) {
             next_pos = intake_pos;
             intake_arm.setPosition(next_pos);
         }
     }
-
-    public void intake_pitch(Servo pitch_servo) {
-        double intakePos = 0.45;
-        pitch_servo.setPosition(intakePos);
-    }
+	public void claw(Servo claw_srvo) {
+		double open_pos = 0.22;
+		double close_pos = 0.65;
+		double curr_pos = claw_srvo.getPosition();
+		if (curr_pos > open_pos-0.05 && curr_pos < open_pos + 0.05) {
+            next_pos = close_pos;
+            claw_srvo.setPosition(next_pos);
+        }
+        if (curr_pos > close_pos-0.05 && curr_pos < close_pos + 0.05) {
+            next_pos = open_pos;
+            claw_srvo.setPosition(next_pos);
+        }
+	}
 }
