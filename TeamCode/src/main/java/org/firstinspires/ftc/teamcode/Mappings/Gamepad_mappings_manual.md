@@ -65,27 +65,27 @@
 </pre>
 * Left Bumper
 <pre>
-  Used for adjusting pitch of intake pod
+  Used for adjusting pitch of intake pod; alternatively reject and intake positions(single button)
 </pre>
 * Right Bumper
 <pre>
-  Used for rotation of arm controlling intake pod
+  Used for rotation of arm controlling intake pod; alternatively up and down(single button)
 </pre>
 * Button A
 <pre>
-  Not yet configured; but will likely be used to set state of rotating arm.
+  Not yet configured; likely will not be used
 </pre>
-* ~~Button B~~
+* Button B
 <pre>
-  Not yet configured; but will likely be used to set state of rotating arm.
+  Next Position of rotating arm
 </pre>
 * ~~Button X~~
 <pre>
-  Not yet configured; but will likely be used to set state of rotating arm.
+  Previous position of rotating arm
 </pre>
-* ~~Button Y~~
+* Button Y
 <pre>
-  Not yet configured; but will likely be used to set state of rotating arm.
+  Opening and closing of claw alternatively(single button)
 </pre>
 * ~~D-pad~~
 <pre>
