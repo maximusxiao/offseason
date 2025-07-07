@@ -15,8 +15,6 @@ import java.util.Arrays;
 import java.util.List;
 
 public class system {
-    public boolean pitch_active = true;
-	
     public void drive(Gamepad gamepad1, DcMotor motor_f_l, DcMotor motor_b_l, DcMotor motor_f_r, DcMotor motor_b_r) {
 
         // y_val reversed
