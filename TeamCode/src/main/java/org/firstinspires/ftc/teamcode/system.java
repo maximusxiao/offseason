@@ -15,9 +15,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class system {
-    public boolean pitch_active = true;
-	
-	public void drive(Gamepad gamepad1, DcMotor motor_f_l, DcMotor motor_b_l, DcMotor motor_f_r, DcMotor motor_b_r) {
+    public void drive(Gamepad gamepad1, DcMotor motor_f_l, DcMotor motor_b_l, DcMotor motor_f_r, DcMotor motor_b_r) {
 
         // y_val reversed
         double y = gamepad1.left_stick_y;
@@ -46,20 +44,18 @@ public class system {
 
         extendo.setPower(slide_power);
     }
+    public void lift(Gamepad gamepad2, DcMotorEx lift_l, DcMotorEx lift_r) {
+        double lift_power = -gamepad2.right_stick_y;
 
+        lift_l.setPower(lift_power);
+        lift_r.setPower(lift_power);
+    }
     public void intake(Gamepad gamepad2, CRServo intake_crservo) {
         double fwd_spin = gamepad2.right_trigger;
         double reverse_spin = gamepad2.left_trigger;
         double spin_power = fwd_spin - reverse_spin;
 
         intake_crservo.setPower(spin_power);
-    }
-
-    public void lift(Gamepad gamepad2, DcMotorEx lift_l, DcMotorEx lift_r) {
-        double lift_power = -gamepad2.right_stick_y;
-
-        lift_l.setPower(lift_power);
-        lift_r.setPower(lift_power);
     }
     public void pitch(Servo pitch_srvo) {
         double intake_pos = 0.22;
@@ -76,7 +72,7 @@ public class system {
         }
     }
     public void intake_pod(Servo intake_pod) {
-		double intake_pos = 0.22;
+	double intake_pos = 0.22;
         double transfer_pos = 0.65;
         double curr_pos = intake_arm.getPosition();
         double next_pos;
@@ -89,11 +85,11 @@ public class system {
             intake_arm.setPosition(next_pos);
         }
     }
-	public void claw(Servo claw_srvo) {
-		double open_pos = 0.22;
-		double close_pos = 0.65;
-		double curr_pos = claw_srvo.getPosition();
-		if (curr_pos > open_pos-0.05 && curr_pos < open_pos + 0.05) {
+    public void claw(Servo claw_srvo) {
+	double open_pos = 0.22;
+	double close_pos = 0.65;
+	double curr_pos = claw_srvo.getPosition();
+	if (curr_pos > open_pos-0.05 && curr_pos < open_pos + 0.05) {
             next_pos = close_pos;
             claw_srvo.setPosition(next_pos);
         }
@@ -101,5 +97,5 @@ public class system {
             next_pos = open_pos;
             claw_srvo.setPosition(next_pos);
         }
-	}
+    }
 }
