@@ -65,29 +65,29 @@
 </pre>
 * Left Bumper
 <pre>
-  Used for adjusting pitch of intake pod; alternatively reject and intake positions(single button)
+  Used for rotation of arm controlling intake pod; alternatively up and down(single button)
 </pre>
 * Right Bumper
 <pre>
-  Used for rotation of arm controlling intake pod; alternatively up and down(single button)
+  Used for adjusting pitch of intake pod; alternatively reject and intake positions(single button)
 </pre>
 * Button A
 <pre>
-  Not yet configured; likely will not be used
+  Used to set state of lift arm
 </pre>
 * Button B
 <pre>
-  Next Position of rotating arm
+  Used to set state of lift arm
 </pre>
 * ~~Button X~~
 <pre>
-  Previous position of rotating arm
+  Used to set state of lift arm
 </pre>
 * Button Y
 <pre>
-  Opening and closing of claw alternatively(single button)
+  Used to set state of lift arm
 </pre>
-* ~~D-pad~~
+* D-pad
 <pre>
-  Not yet configured; Up and down will likely be configured to endgame hang, while left and right control movement of claw.
+  Up = PTO mode, down = stilts, left = claw, right = wrist
 </pre><br />
