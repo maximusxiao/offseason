@@ -92,7 +92,8 @@ public class tele extends LinearOpMode {
         // Stilt servo Connection
         stilt_l = hardwareMap.get(Servo.class, "servo_stilt_l");
         stilt_r = hardwareMap.get(Servo.class, "servo_stilt_r");
-
+		
+		stilt_r.setDirection(Servo.Direction.REVERSE);
         stilt_l.setPosition(0.4);
         stilt_r.setPosition(0.4);
 
