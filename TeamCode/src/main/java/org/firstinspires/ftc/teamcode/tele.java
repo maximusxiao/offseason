@@ -34,22 +34,22 @@ public class tele extends LinearOpMode {
 	
 	@Override
 	public void RunOpMode() throws InterruptedException {
-		if (opModeInInit()) {
-			this.initialize();
-		}
+	    if (opModeInInit()) {
+	        this.initialize();
+	    }
 		
 		// WAIT UNTIL START
-		waitForStart();
+	    waitForStart();
 	
         // STOP WHEN STOP
-    if (isStopRequested()) {
-      return;
-    }
-        // Separate method
-		// I LOVE SEPARATE METHODS(Max hates it but who gaf):)
-    while (opModeIsActive()) {
-      this.update();
-    }
+	    if (isStopRequested()) {
+	      return;
+	    }
+	        // Separate method
+			// I LOVE SEPARATE METHODS(Max hates it but who gaf):)
+	    while (opModeIsActive()) {
+	      this.update();
+	    }
 	}
 	
 	// Method for initialization
