@@ -50,8 +50,8 @@ public class monkey {
         cr_intake.setPower(spin_power);
     }
     public void i_arm(Servo arm_i) {
-        double intake_pos = 0.22;
-        double transfer_pos = 0.8;
+        double intake_pos = 0.25;
+        double transfer_pos = 0.9;
         double curr_pos = arm_i.getPosition();
 
         if ((curr_pos > intake_pos - 0.05) && (curr_pos < intake_pos + 0.05)) {
@@ -94,21 +94,46 @@ public class monkey {
         }
     }
     public void lift_arm(Servo arm_l, Servo arm_r, int pos) {
-        if (pos == 0) {
-            arm_l.setPosition(0.0);
-            arm_r.setPosition(0.0);
-        }
-        if (pos == 1) {
+        double curr_pos = arm_l.getPosition();
+		double pos_0 = 0.1;
+		double pos_1 = 0.3;
+		double pos_2 = 0.5;
+		double pos_3 = 0.7;
+		int curr_index;
+		
+		if (curr_pos < pos_0 + 0.05 && curr_pos > pos_0 - 0.05) {
+			curr_index = 0;
+		} else if (curr_pos < pos_1 + 0.05 && curr_pos > pos_1 - 0.05) {
+			curr_index = 1;
+		} else if(curr_pos < pos_2 + 0.05 && curr_pos > pos_2 - 0.05) {
+			curr_index = 2;
+		} else if (curr_pos < pos_3 + 0.05 && curr_pos > pos_3 - 0.05) {
+			curr_index = 3;
+		}
+		
+		if (pos < curr_index) {
+			arm_l.setDirection(Servo.Direction.REVERSE);
+			arm_r.setDirection(Servo.Direction.REVERSE);
+		} else {
+			arm_l.setDirection(Servo.Direction.FORWARD);
+			arm_r.setDirection(Servo.Direction.FORWARD);
+		}
+		
+		if (pos == 0) {
             arm_l.setPosition(0.1);
             arm_r.setPosition(0.1);
         }
-        if (pos == 2) {
+        if (pos == 1) {
             arm_l.setPosition(0.3);
             arm_r.setPosition(0.3);
         }
-        if (pos == 3) {
+        if (pos == 2) {
             arm_l.setPosition(0.5);
             arm_r.setPosition(0.5);
+        }
+        if (pos == 3) {
+            arm_l.setPosition(0.7);
+            arm_r.setPosition(0.7);
         }
     }
     public void stilts(Servo stilt_l, Servo stilt_r) {
