@@ -50,7 +50,7 @@ public class monkey {
         cr_intake.setPower(spin_power);
     }
     public void i_arm(Servo arm_i) {
-        double intake_pos = 0.22;
+        double intake_pos = 0.3;
         double transfer_pos = 0.8;
         double curr_pos = arm_i.getPosition();
 
@@ -72,8 +72,8 @@ public class monkey {
         }
     }
     public void wrist(Servo wrist_srvo) {
-        double intake_pos = 0.3;
-        double spec_sample_pos = 0.5;
+        double intake_pos = 0.25;
+        double spec_sample_pos = 0.11;
         double curr_pos = wrist_srvo.getPosition();
 
         if ((curr_pos > intake_pos - 0.05) && (curr_pos < intake_pos + 0.05)) {
@@ -94,25 +94,16 @@ public class monkey {
         }
     }
     public void lift_arm(Servo arm_l, Servo arm_r, int pos) {
-        if (pos == 0) {
-            arm_l.setPosition(0.0);
-            arm_r.setPosition(0.0);
-        }
-        if (pos == 1) {
-            arm_l.setPosition(0.1);
-            arm_r.setPosition(0.1);
-        }
-        if (pos == 2) {
-            arm_l.setPosition(0.3);
-            arm_r.setPosition(0.3);
-        }
-        if (pos == 3) {
-            arm_l.setPosition(0.5);
-            arm_r.setPosition(0.5);
+        if (pos==1) {
+            arm_r.setPosition(arm_r.getPosition()-0.1);
+            arm_l.setPosition(arm_l.getPosition()-0.1);
+        } else if (pos==0) {
+            arm_r.setPosition(arm_r.getPosition()+0.1);
+            arm_l.setPosition(arm_l.getPosition()+0.1);
         }
     }
     public void stilts(Servo stilt_l, Servo stilt_r) {
-        double stow_pos = 0.4;
+        double stow_pos = 0.6;
         double active_pos = 0.1;
         double curr_pos = stilt_l.getPosition();
 
@@ -128,7 +119,7 @@ public class monkey {
         double off_pos_l = 0.28;
         double off_pos_r = 0.75;
         double engage_pos_l = 0.2;
-        double engage_pos_r = 0.8;
+        double engage_pos_r = 0.83;
         double curr_pos = pto_l.getPosition();
 
         if ((curr_pos > off_pos_l - 0.05) && (curr_pos < off_pos_l + 0.05)) {
@@ -138,5 +129,12 @@ public class monkey {
             pto_l.setPosition(off_pos_l);
             pto_r.setPosition(off_pos_r);
         }
+    }
+    public void transfer(Servo wrist_srvo, Servo arm_l, Servo arm_r, Servo claw_srvo, CRServo intake_crsvro) {
+        claw_srvo.setPosition(0.32);
+        arm_l.setPosition(0.2);
+        arm_r.setPosition(0.2);
+        intake_crsvro.setPower(1);
+        wrist_srvo.setPosition(0.25);
     }
 }

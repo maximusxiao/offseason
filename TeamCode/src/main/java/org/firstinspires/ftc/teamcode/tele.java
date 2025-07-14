@@ -49,6 +49,10 @@ public class tele extends LinearOpMode {
         // I LOVE SEPARATE METHODS(Max hates it but who gaf):)
         while (opModeIsActive()) {
             this.update();
+            telemetry.addData("Motor fl", motor_fl.getPower());
+            telemetry.addData("Motor fr", motor_fr.getPower());
+            telemetry.addData("Motor bl", motor_bl.getPower());
+            telemetry.addData("Motor br", motor_br.getPower());
         }
     }
 
@@ -84,18 +88,19 @@ public class tele extends LinearOpMode {
 
         claw_servo.setDirection(Servo.Direction.REVERSE);
         claw_servo.setPosition(0.32);
-        wrist_servo.setPosition(0.3);
-        l_arm_l.setPosition(0.1);
-        l_arm_r.setPosition(0.1);
+        wrist_servo.setPosition(0.25);
+        l_arm_l.setPosition(0.5);
+        l_arm_r.setPosition(0.5);
+        l_arm_l.setDirection(Servo.Direction.REVERSE);
 
 
         // Stilt servo Connection
         stilt_l = hardwareMap.get(Servo.class, "servo_stilt_l");
         stilt_r = hardwareMap.get(Servo.class, "servo_stilt_r");
 
-        stilt_l.setDirection(Servo.Direction.REVERSE);
-        stilt_l.setPosition(0.4);
-        stilt_r.setPosition(0.4);
+        stilt_r.setDirection(Servo.Direction.REVERSE);
+        stilt_l.setPosition(0.6);
+        stilt_r.setPosition(0.6);
 
         // PTO servo Connection
         pto_l = hardwareMap.get(Servo.class, "servo_pto_l");
@@ -138,6 +143,9 @@ public class tele extends LinearOpMode {
         }
         if (gamepad2.dpadUpWasPressed()) {
             sys.pto(pto_l, pto_r);
+        }
+        if (gamepad1.dpadUpWasPressed()) {
+            sys.transfer(wrist_servo, l_arm_l, l_arm_r, claw_servo, intake_crservo);
         }
         sys.drive(gamepad1, motor_fl, motor_bl, motor_fr, motor_br);
         sys.lift(gamepad2, lift_l, lift_r);

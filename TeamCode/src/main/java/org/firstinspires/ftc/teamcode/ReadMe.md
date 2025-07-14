@@ -1,4 +1,4 @@
-<img src="https://cdn.prod.website-files.com/6854d4a8e524965ae2661fb2/6854d7f1a1fee9b351f2ed02_vibrant%20logo%20with%20words%201.svg" loading="lazy" alt="" width="300">
+    <img src="https://cdn.prod.website-files.com/6854d4a8e524965ae2661fb2/6854d7f1a1fee9b351f2ed02_vibrant%20logo%20with%20words%201.svg" loading="lazy" alt="" width="300">
 
 # OmicronX - FTC 30099
 ## Who are we?
