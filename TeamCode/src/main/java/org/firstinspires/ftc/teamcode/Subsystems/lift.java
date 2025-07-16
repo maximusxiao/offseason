@@ -42,7 +42,7 @@ public class lift extends Subsystem {
 
     // Initialize function
     public void initialize() {
-        lift_motor_l = new MotorEx(lift_l_config);
+        lift_motor_l = new MotorEx(lift_l_config).reverse();
         lift_motor_r = new MotorEx(lift_r_config);
         lift_motors = new MotorGroup(lift_motor_l, lift_motor_r);
     }

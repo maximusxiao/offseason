@@ -61,8 +61,8 @@ public class monkey {
         }
     }
     public void pitch(Servo pitch_srvo) {
-        double intake_pos = 0.4;
-        double reject_pos = 0.6;
+        double intake_pos = 0.27;
+        double reject_pos = 0.4;
         double curr_pos = pitch_srvo.getPosition();
 
         if ((curr_pos > intake_pos - 0.05) && (curr_pos < intake_pos + 0.05)) {

@@ -34,9 +34,9 @@ public class command_tele extends PedroOpMode {
 
     @Override()
     public void onInit() {
-        fl_motor = new MotorEx(flMotorConfig);
+        fl_motor = new MotorEx(flMotorConfig).reverse();
         fr_motor = new MotorEx(frMotorConfig);
-        bl_motor = new MotorEx(blMotorConfig);
+        bl_motor = new MotorEx(blMotorConfig).reverse();
         br_motor = new MotorEx(brMotorConfig);
 
         drive_motors = new MotorEx[] {fl_motor, fr_motor, bl_motor, br_motor};
@@ -46,8 +46,8 @@ public class command_tele extends PedroOpMode {
     public void onStartButtonPressed() {
         manual_drive = new MecanumDriverControlled(drive_motors, gamepadManager.getGamepad1());
         manual_drive.invoke();
-        gamepadManager.getGamepad2().getLeftStick().setStateChangeCommand((value) -> lift.INSTANCE.lift_power(value.component2()));
-        gamepadManager.getGamepad2().getRightStick().setStateChangeCommand((value) -> extendo.INSTANCE.extension_power(value.component2()));
+        gamepadManager.getGamepad2().getLeftStick().setDisplacedCommand((value) -> lift.INSTANCE.lift_power(value.component2()));
+        gamepadManager.getGamepad2().getRightStick().setDisplacedCommand((value) -> extendo.INSTANCE.extension_power(value.component2()));
     }
 }
 
