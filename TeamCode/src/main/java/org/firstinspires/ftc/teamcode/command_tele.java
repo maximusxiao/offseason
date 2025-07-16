@@ -30,7 +30,7 @@ public class command_tele extends PedroOpMode {
 
     public MotorEx[] drive_motors;
 
-    public Command manual_drive;
+    public MecanumDriverControlled manual_drive;
 
     @Override()
     public void onInit() {
