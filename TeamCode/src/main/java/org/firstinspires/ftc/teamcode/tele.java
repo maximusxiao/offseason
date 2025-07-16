@@ -11,7 +11,7 @@ public class tele extends LinearOpMode {
 
     public monkey sys = new monkey();
 
-    // Hardware declaration
+    // Hardware declarations
 
     // Drive Motors
     private DcMotorEx motor_fl, motor_bl, motor_fr, motor_br;
