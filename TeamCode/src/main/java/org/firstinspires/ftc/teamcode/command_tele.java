@@ -46,8 +46,8 @@ public class command_tele extends PedroOpMode {
     public void onStartButtonPressed() {
         manual_drive = new MecanumDriverControlled(drive_motors, gamepadManager.getGamepad1());
         manual_drive.invoke();
-
-        gamepadManager.getGamepad2().getRightStick().setStateChangeCommand((value) -> extendo.INSTANCE.extension_power(value.component1()));
+        gamepadManager.getGamepad2().getLeftStick().setStateChangeCommand((value) -> lift.INSTANCE.lift_power(value.component2()));
+        gamepadManager.getGamepad2().getRightStick().setStateChangeCommand((value) -> extendo.INSTANCE.extension_power(value.component2()));
     }
 }
 

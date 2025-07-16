@@ -7,6 +7,7 @@ import com.rowanmcalpin.nextftc.core.control.controllers.feedforward.StaticFeedf
 import com.rowanmcalpin.nextftc.ftc.hardware.controllables.MotorEx;
 import com.rowanmcalpin.nextftc.ftc.hardware.controllables.MotorGroup;
 import com.rowanmcalpin.nextftc.ftc.hardware.controllables.RunToPosition;
+import com.rowanmcalpin.nextftc.ftc.hardware.controllables.SetPower;
 
 public class lift extends Subsystem {
 
@@ -24,6 +25,12 @@ public class lift extends Subsystem {
 
     public String lift_l_config = "motor_lift_l";
     public String lift_r_config = "motor_lift_r";
+
+    public Command lift_power(float power) {
+        return new SetPower(lift_motors,
+                power,
+                this);
+    }
 
     public Command transfer_pos() {
         return new RunToPosition(lift_motors,
