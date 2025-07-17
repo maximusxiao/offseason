@@ -45,7 +45,7 @@ public class wrist extends Subsystem {
     @Override()
     //Init Function
     public void initialize() {
-        wrist_servo = OpModeData.INSTANCE.getHardwareMap().get(Servo.class, servo_config);
+        wrist_servo = OpModeData.INSTANCE.getHardwareMap().get(Servo.class, wrist_config);
         wrist_servo.setPosition(0.25);
     }
 }
