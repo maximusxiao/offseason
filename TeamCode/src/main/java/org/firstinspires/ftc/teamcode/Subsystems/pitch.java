@@ -30,16 +30,16 @@ public class pitch extends Subsystem {
     public String pitch_config = "servo_pitch";
 
 
-    public Command intake() {
+    public Command no_tilt() {
         return new ServoToPosition(pitch_servo,
-                0.32,
+                0.27,
                 this);
     }
 
 
-    public Command reject() {
+    public Command tilt_up() {
         return new ServoToPosition(pitch_servo,
-                0.0,
+                0.4,
                 this);
     }
 
@@ -49,6 +49,6 @@ public class pitch extends Subsystem {
     //Init Function
     public void initialize() {
         pitch_servo = OpModeData.INSTANCE.getHardwareMap().get(Servo.class, pitch_config);
-        pitch_servo.setPosition(0.0);
+        pitch_servo.setPosition(0.27);
     }
 }
