@@ -20,9 +20,7 @@ import java.util.List;
 public class claw extends Subsystem {
     public static final claw INSTANCE = new claw();
 
-    public claw() {
-
-    }
+    public claw() {}
 
     //Init
     public Servo claw_servo;

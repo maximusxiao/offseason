@@ -77,7 +77,7 @@ public class tele extends LinearOpMode {
         pitch_servo = hardwareMap.get(Servo.class, "servo_pitch");
         intake_arm = hardwareMap.get(Servo.class, "servo_intake_arm");
 
-        pitch_servo.setPosition(0.4);
+        pitch_servo.setPosition(0.39);
         intake_arm.setPosition(0.8);
 
         // Outtake servo Connection
@@ -88,7 +88,7 @@ public class tele extends LinearOpMode {
 
         claw_servo.setDirection(Servo.Direction.REVERSE);
         claw_servo.setPosition(0.32);
-        wrist_servo.setPosition(0.25);
+        wrist_servo.setPosition(0.33);
         l_arm_l.setPosition(0.5);
         l_arm_r.setPosition(0.5);
         l_arm_l.setDirection(Servo.Direction.REVERSE);
@@ -99,8 +99,8 @@ public class tele extends LinearOpMode {
         stilt_r = hardwareMap.get(Servo.class, "servo_stilt_r");
 
         stilt_r.setDirection(Servo.Direction.REVERSE);
-        stilt_l.setPosition(0.6);
-        stilt_r.setPosition(0.6);
+        stilt_l.setPosition(0.55);
+        stilt_r.setPosition(0.55);
 
         // PTO servo Connection
         pto_l = hardwareMap.get(Servo.class, "servo_pto_l");

@@ -14,10 +14,10 @@ import java.util.List;
 public class monkey {
     public void drive(Gamepad gamepad1, DcMotorEx motor_f_l, DcMotorEx motor_b_l, DcMotorEx motor_f_r, DcMotorEx motor_b_r) {
         // IDK WHAT HAPPENED HERE
-        double y = gamepad1.left_stick_y;
+        double y = -gamepad1.left_stick_y;
 
         // Multiplier of 1.17 to counteract strafing range
-        double x = -gamepad1.left_stick_x * 1.17;
+        double x = gamepad1.left_stick_x * 1.17;
         double rx = gamepad1.right_stick_x;
 
         // Range_limiter containes power within range [-1,1]
@@ -62,7 +62,7 @@ public class monkey {
     }
     public void pitch(Servo pitch_srvo) {
         double intake_pos = 0.27;
-        double reject_pos = 0.4;
+        double reject_pos = 0.39;
         double curr_pos = pitch_srvo.getPosition();
 
         if ((curr_pos > intake_pos - 0.05) && (curr_pos < intake_pos + 0.05)) {
@@ -72,8 +72,8 @@ public class monkey {
         }
     }
     public void wrist(Servo wrist_srvo) {
-        double intake_pos = 0.25;
-        double spec_sample_pos = 0.11;
+        double intake_pos = 0.33;
+        double spec_sample_pos = 0.0;
         double curr_pos = wrist_srvo.getPosition();
 
         if ((curr_pos > intake_pos - 0.05) && (curr_pos < intake_pos + 0.05)) {
@@ -95,15 +95,15 @@ public class monkey {
     }
     public void lift_arm(Servo arm_l, Servo arm_r, int pos) {
         if (pos==1) {
-            arm_r.setPosition(arm_r.getPosition()-0.1);
-            arm_l.setPosition(arm_l.getPosition()-0.1);
+            arm_r.setPosition(arm_r.getPosition()-0.05);
+            arm_l.setPosition(arm_l.getPosition()-0.05);
         } else if (pos==0) {
-            arm_r.setPosition(arm_r.getPosition()+0.1);
-            arm_l.setPosition(arm_l.getPosition()+0.1);
+            arm_r.setPosition(arm_r.getPosition()+0.05);
+            arm_l.setPosition(arm_l.getPosition()+0.05);
         }
     }
     public void stilts(Servo stilt_l, Servo stilt_r) {
-        double stow_pos = 0.6;
+        double stow_pos = 0.55;
         double active_pos = 0.1;
         double curr_pos = stilt_l.getPosition();
 
