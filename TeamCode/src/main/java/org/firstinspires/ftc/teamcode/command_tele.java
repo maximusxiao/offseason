@@ -112,22 +112,15 @@ public class command_tele extends PedroOpMode {
                         lift_arm.INSTANCE.spec_dep()
                 )
         );
+        gamepadManager.getGamepad2().getY().setPressedCommand(
+                () -> new SequentialGroup(
+                        lift.INSTANCE.lift_power((float) 1),
+                        // Time for lift to lift and reach the beam for hanging specs, needs to be tested
+                        new Delay(0.2),
+                        // Power necessary to counter gravity, needs to be tested
+                        lift.INSTANCE.lift_power((float) 0.17),
+                        claw.INSTANCE.open()
+                )
+        );
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
