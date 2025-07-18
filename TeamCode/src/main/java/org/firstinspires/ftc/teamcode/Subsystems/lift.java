@@ -46,6 +46,7 @@ public class lift extends Subsystem {
                 this);
     }
 
+    @Override()
     // Initialize function
     public void initialize() {
         lift_motor_l = new MotorEx(lift_l_config).reverse();
