@@ -34,6 +34,7 @@ public class extendo extends Subsystem {
                 this);
     }
 
+    @Override()
     // Initialize function
     public void initialize() {
         extendo_motor = new MotorEx(extendo_config);
