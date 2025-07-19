@@ -93,7 +93,9 @@ public class command_tele_with_color extends PedroOpMode {
                                 () -> new ParallelGroup(
                                         intake_arm.INSTANCE.intake(),
                                         pitch.INSTANCE.reject(),
-                                        intake.INSTANCE.outtake(value)
+                                        intake.INSTANCE.outtake(value),
+                                        new Delay(0.25),
+                                        intake.INSTANCE.intake(0)
                                 )
                         )
                 )
