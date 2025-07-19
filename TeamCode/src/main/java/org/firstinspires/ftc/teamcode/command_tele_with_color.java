@@ -98,13 +98,6 @@ public class command_tele_with_color extends PedroOpMode {
                         )
                 )
         );
-        gamepadManager.getGamepad2().getLeftTrigger().setStateChangeCommand(
-                value -> new ParallelGroup(
-                        intake_arm.INSTANCE.intake(),
-                        pitch.INSTANCE.reject(),
-                        intake.INSTANCE.outtake(value)
-                )
-        );
         gamepadManager.getGamepad2().getDpadUp().setPressedCommand(
                 () -> new SequentialGroup(
                         stilts.INSTANCE.raise(),
