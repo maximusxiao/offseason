@@ -1,25 +1,43 @@
 package org.firstinspires.ftc.teamcode;
 
+import com.acmerobotics.dashboard.FtcDashboard;
+import com.acmerobotics.dashboard.config.Config;
+import com.acmerobotics.dashboard.telemetry.MultipleTelemetry;
+import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
-import com.rowanmcalpin.nextftc.pedro.PedroOpMode;
+import com.qualcomm.robotcore.hardware.DcMotorEx;
+import com.seattlesolvers.solverslib.controller.PIDFController;
 
-import org.firstinspires.ftc.teamcode.pid_subsys.test_subsys;
+@Config
+@TeleOp(name="PID Tuner", group="PID")
+public class PID_Tuner extends OpMode {
+    private PIDFController controller;
 
-@TeleOp(name = "Command OpMode", group = "Command Opmodes")
-public class PID_Tuner extends PedroOpMode {
-    public PID_Tuner() {
-        super(test_subsys.INSTANCE);
+    private static double P = 0;
+    private static double I = 0;
+    private static double D = 0;
+    private static double F = 0;
+
+    private static int target = 0;
+
+    private DcMotorEx test_motor;
+    private static String test_motor_name;
+
+    @Override
+    public void init() {
+        controller = new PIDFController(P, I, D, F);
+        telemetry = new MultipleTelemetry(telemetry, FtcDashboard.getInstance().getTelemetry());
+
+        test_motor = hardwareMap.get(DcMotorEx.class, test_motor_name);
     }
 
-    @Override()
-    public void onInit() {
+    @Override
+    public void loop() {
+        double curr_pos = test_motor.getCurrentPosition();
+        double power = controller.calculate(curr_pos, target);
+        test_motor.setPower(power);
 
-    }
-
-    @Override()
-    public void onStartButtonPressed() {
-        gamepadManager.getGamepad1().getRightBumper().setPressedCommand(
-                () -> test_subsys.INSTANCE.tune()
-        );
+        telemetry.addData("Target: ", target);
+        telemetry.addData("Current Position: ", curr_pos);
     }
 }
