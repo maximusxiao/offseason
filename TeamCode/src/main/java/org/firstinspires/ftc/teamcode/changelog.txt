@@ -1,3 +1,0 @@
- - 7/16/2025 Evening
-Me and Alex finished all the subsystems for command-based excluding the specific values/numbers.
-Only task left is the linking of commands to buttons
