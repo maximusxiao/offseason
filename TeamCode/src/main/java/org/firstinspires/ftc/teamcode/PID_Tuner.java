@@ -6,26 +6,27 @@ import com.acmerobotics.dashboard.telemetry.MultipleTelemetry;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
-import com.seattlesolvers.solverslib.controller.PIDFController;
+import com.rowanmcalpin.nextftc.core.control.controllers.PIDFController;
+import com.rowanmcalpin.nextftc.core.control.controllers.feedforward.StaticFeedforward;
 
 @Config
 @TeleOp(name="PID Tuner", group="PID")
 public class PID_Tuner extends OpMode {
     private PIDFController controller;
 
-    private static double P = 0;
-    private static double I = 0;
-    private static double D = 0;
-    private static double F = 0;
+    public static double P = 0;
+    public static double I = 0;
+    public static double D = 0;
+    public static double F = 0;
 
-    private static int target = 0;
+    public static int target = 200;
 
     private DcMotorEx test_motor;
-    private static String test_motor_name;
+    private static String test_motor_name = "motor_extendo";
 
     @Override
     public void init() {
-        controller = new PIDFController(P, I, D, F);
+        controller = new PIDFController(P, I, D, new StaticFeedforward(F));
         telemetry = new MultipleTelemetry(telemetry, FtcDashboard.getInstance().getTelemetry());
 
         test_motor = hardwareMap.get(DcMotorEx.class, test_motor_name);
